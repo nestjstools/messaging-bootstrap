@@ -18,7 +18,7 @@ type Config = Omit<MessagingModuleOptions, 'global'>
 
 type MessagingModuleConfig = Config & { extensions?: IEntryNestModule[] };
 
-interface MessagingOptions {
+export interface MessagingOptions {
   messaging?: MessagingModuleConfig;
 }
 
