@@ -18,7 +18,6 @@ Instead of manually configuring messaging in your `AppModule`, this package lets
 - 🧵 Microservice/worker mode for consumers only
 - 🌐 HTTP server with integrated messaging
 - 🚀 Clean `main.ts` bootstrapping
-- 🔌 Compatible with `@nestjstools/messaging` and RabbitMQ extension
 
 ---
 
