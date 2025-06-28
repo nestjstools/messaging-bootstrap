@@ -1,6 +1,6 @@
 {
   "name": "@nestjstools/messaging-bootstrap",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A lightweight NestJS utility to bootstrap messaging-based apps with HTTP and microservice modes, built on top of @nestjstools/messaging.",
   "author": "Sebastian Iwanczyszyn",
   "license": "MIT",
