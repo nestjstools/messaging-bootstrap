@@ -16,7 +16,7 @@ const MESSAGING_IOC_CONFIG = 'messenger_CHANNELS';
 
 type Config = Omit<MessagingModuleOptions, 'global'>
 
-type MessagingModuleConfig = Config & { extensions?: IEntryNestModule[] };
+export type MessagingModuleConfig = Config & { extensions?: IEntryNestModule[] };
 
 export interface MessagingOptions {
   messaging?: MessagingModuleConfig;
