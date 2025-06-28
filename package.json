@@ -1,0 +1,106 @@
+{
+  "name": "@nestjstools/messaging-bootstrap",
+  "version": "1.0.0",
+  "description": "A lightweight NestJS utility to bootstrap messaging-based apps with HTTP and microservice modes, built on top of @nestjstools/messaging.",
+  "author": "Sebastian Iwanczyszyn",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "url": "https://github.com/nestjstools/messaging-bootstrap/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nestjstools/messaging-bootstrap"
+  },
+  "files": [
+    "lib",
+    "LICENSE",
+    "package.json"
+  ],
+  "keywords": [
+    "nestjstools",
+    "nestjs",
+    "distributed",
+    "messaging-bootstrap",
+    "nestjs-messaging-bootstrap",
+    "message-bus",
+    "service-bus",
+    "bootstrap"
+  ],
+  "scripts": {
+    "build": "node_modules/.bin/nest build",
+    "format": "node_modules/.bin/prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "node_modules/.bin/nest start",
+    "start:dev": "node_modules/.bin/nest start --watch",
+    "start:debug": "node_modules/.bin/nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "lint": "node_modules/.bin/eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "test": "npm run test:e2e && npm run test:unit",
+    "test:watch": "node_modules/.bin/jest --watch",
+    "test:unit:watch": "node_modules/.bin/jest --watch --config ./test/jest-unit.json",
+    "test:cov": "node_modules/.bin/jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "node_modules/.bin/jest --config ./test/jest-e2e.json",
+    "test:unit": "node_modules/.bin/jest --config ./test/jest-unit.json"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^10.x||^11.x",
+    "@nestjs/core": "^10.x||^11.x",
+    "@nestjstools/messaging": "^2.x",
+    "reflect-metadata": "^0.2.0",
+    "rxjs": "^7.x"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^11.0.0",
+    "@nestjs/common": "^11.0.0",
+    "@nestjs/core": "^11.0.0",
+    "@nestjs/microservices": "^11.1.3",
+    "@nestjs/platform-express": "^11.0.0",
+    "@nestjs/schematics": "^11.0.0",
+    "@nestjs/testing": "^11.0.0",
+    "@nestjstools/messaging": "^2.17.1",
+    "@semantic-release/github": "^11.0.1",
+    "@types/express": "^5.0.0",
+    "@types/jest": "^29.5.2",
+    "@types/node": "^20.3.1",
+    "@types/supertest": "^6.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "jest": "^29.5.0",
+    "prettier": "^3.0.0",
+    "reflect-metadata": "^0.2.0",
+    "rxjs": "^7.x",
+    "semantic-release": "^24.2.3",
+    "semantic-release-pr-analyzer": "^1.6.0",
+    "source-map-support": "^0.5.21",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.1.0",
+    "ts-loader": "^9.4.3",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.1.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
+}
