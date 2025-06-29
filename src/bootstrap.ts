@@ -9,6 +9,8 @@ import {
 } from '@nestjs/common';
 import { MessagingModuleOptions } from '@nestjstools/messaging/lib/config';
 import { MessagingModule } from '@nestjstools/messaging';
+import { AbstractHttpAdapter } from '@nestjs/core/adapters/http-adapter';
+import { NestMicroserviceOptions } from '@nestjs/common/interfaces/microservices/nest-microservice-options.interface';
 
 type IEntryNestModule = Type<any> | DynamicModule | ForwardReference | Promise<IEntryNestModule>;
 
@@ -23,7 +25,7 @@ export interface MessagingOptions {
 }
 
 export interface MicroserviceMessagingOptions extends MessagingOptions {
-  nestMicroserviceOptions?: MicroserviceOptions;
+  nestMicroserviceOptions?: NestMicroserviceOptions;
 }
 
 export interface MessagingNestServerOptions extends MessagingOptions {
@@ -69,10 +71,15 @@ export class MessagingBootstrap {
     return app;
   }
 
-  static async createNestApplicationWithMessaging(module: IEntryNestModule, options?: MessagingNestServerOptions): Promise<INestApplication> {
-    return NestFactory.create(
-      AppWrapperModule.init(module, options?.messaging),
-      options?.nestApplicationOptions,
+  static async createNestApplicationWithMessaging(module: IEntryNestModule, httpAdapter?: AbstractHttpAdapter, options?: MessagingNestServerOptions): Promise<INestApplication> {
+    return httpAdapter
+      ? NestFactory.create(
+        AppWrapperModule.init(module, options?.messaging),
+        httpAdapter,
+        options?.nestApplicationOptions)
+      : NestFactory.create(
+        AppWrapperModule.init(module, options?.messaging),
+        options?.nestApplicationOptions,
     );
   }
 }
