@@ -21,11 +21,11 @@ type Config = Omit<MessagingModuleOptions, 'global'>
 export type MessagingModuleConfig = Config & { extensions?: IEntryNestModule[] };
 
 export interface MessagingOptions {
-  messaging?: MessagingModuleConfig & MicroserviceOptions;
+  messaging?: MessagingModuleConfig;
 }
 
 export interface MicroserviceMessagingOptions extends MessagingOptions {
-  nestMicroserviceOptions?: NestMicroserviceOptions;
+  nestMicroserviceOptions?: NestMicroserviceOptions & MicroserviceOptions;
 }
 
 export interface MessagingNestServerOptions extends MessagingOptions {
