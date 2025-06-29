@@ -21,7 +21,7 @@ type Config = Omit<MessagingModuleOptions, 'global'>
 export type MessagingModuleConfig = Config & { extensions?: IEntryNestModule[] };
 
 export interface MessagingOptions {
-  messaging?: MessagingModuleConfig;
+  messaging?: MessagingModuleConfig & MicroserviceOptions;
 }
 
 export interface MicroserviceMessagingOptions extends MessagingOptions {
@@ -56,7 +56,7 @@ class AppWrapperModule {
 }
 
 export class MessagingBootstrap {
-  static async createNestMicroserviceWithMessagingConsumer(module: IEntryNestModule, options?: MicroserviceMessagingOptions): Promise<INestMicroservice> {
+  static async createNestMicroserviceWithMessagingConsumer<T extends object>(module: IEntryNestModule, options?: MicroserviceMessagingOptions & T): Promise<INestMicroservice> {
     const app = await NestFactory.createMicroservice<MicroserviceOptions>(
       AppWrapperModule.init(module, options?.messaging),
       options?.nestMicroserviceOptions,
@@ -71,7 +71,7 @@ export class MessagingBootstrap {
     return app;
   }
 
-  static async createNestApplicationWithMessaging(module: IEntryNestModule, httpAdapter?: AbstractHttpAdapter, options?: MessagingNestServerOptions): Promise<INestApplication> {
+  static async createNestApplicationWithMessaging<T extends INestApplication = INestApplication>(module: IEntryNestModule, httpAdapter?: AbstractHttpAdapter, options?: MessagingNestServerOptions): Promise<T> {
     return httpAdapter
       ? NestFactory.create(
         AppWrapperModule.init(module, options?.messaging),
