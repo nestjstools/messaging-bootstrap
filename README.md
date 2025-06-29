@@ -61,7 +61,7 @@ Including it manually will lead to duplicate initialization and unexpected behav
 ---
 ## Getting Started
 
-### 🚀 HTTP Server with Messaging
+### HTTP Server with Messaging
 
 ```ts
 // main.ts
@@ -73,6 +73,7 @@ import { MessagingBootstrap } from '@nestjstools/messaging-bootstrap';
 async function bootstrap() {
   const app = await MessagingBootstrap.createNestApplicationWithMessaging(
     AppModule,
+    //You can provide HTTP ADAPTER as second argument (optional)
     {
       messaging: {
         // Load your messaging extensions here (e.g., RabbitMQ, Redis, Amazon SQS, etc.)
@@ -117,7 +118,7 @@ bootstrap();
 
 ---
 
-### 🧵 Microservice / Worker Mode
+### Microservice / Worker Mode
 
 ```ts
 // main.ts

@@ -71,15 +71,31 @@ export class MessagingBootstrap {
     return app;
   }
 
-  static async createNestApplicationWithMessaging<T extends INestApplication = INestApplication>(module: IEntryNestModule, httpAdapter?: AbstractHttpAdapter, options?: MessagingNestServerOptions): Promise<T> {
+  static async createNestApplicationWithMessaging<T extends INestApplication = INestApplication>(
+    module: IEntryNestModule,
+    httpAdapterOrOptions?: AbstractHttpAdapter | MessagingNestServerOptions,
+    maybeOptions?: MessagingNestServerOptions,
+  ): Promise<T> {
+    let httpAdapter: AbstractHttpAdapter | undefined;
+    let options: MessagingNestServerOptions | undefined;
+
+    if (httpAdapterOrOptions && 'getType' in httpAdapterOrOptions) {
+      httpAdapter = httpAdapterOrOptions as AbstractHttpAdapter;
+      options = maybeOptions;
+    } else {
+      httpAdapter = undefined;
+      options = httpAdapterOrOptions as MessagingNestServerOptions;
+    }
+
     return httpAdapter
       ? NestFactory.create(
         AppWrapperModule.init(module, options?.messaging),
         httpAdapter,
-        options?.nestApplicationOptions)
+        options?.nestApplicationOptions,
+      )
       : NestFactory.create(
         AppWrapperModule.init(module, options?.messaging),
         options?.nestApplicationOptions,
-    );
+      );
   }
 }
