@@ -919,10 +919,10 @@
   dependencies:
     tslib "2.8.1"
 
-"@nestjstools/messaging@^2.17.1":
-  version "2.17.1"
-  resolved "https://registry.yarnpkg.com/@nestjstools/messaging/-/messaging-2.17.1.tgz#9f625fbd68bdc6556f3536974cc4b33c78e811c1"
-  integrity sha512-vPdb7tJT+KWM4+cE1YpuIvN9+wqsJF0GQZiRgdI6gXqiygWQUPXms7e5lW4RdGg0sg4XPPT2IsX/7E4uL/S+mQ==
+"@nestjstools/messaging@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@nestjstools/messaging/-/messaging-3.0.2.tgz#6c99fda05730e0dd0e35883b23af1a7ab5d16f94"
+  integrity sha512-ZP6Wn0AyztuR6dvHlHqTZ3gKW844IqTxh8PkLXVkjhIMzxf6Cb1n8yEw06bHE+FQvxcwLrY+/cstjyhnt8r6YQ==
   dependencies:
     class-transformer "^0.5.1"
 
