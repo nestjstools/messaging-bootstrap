@@ -15,15 +15,16 @@ Instead of manually configuring messaging in your `AppModule`, this package lets
 
 ## Features
 
-- 🧵 Microservice/worker mode for consumers only
-- 🌐 HTTP server with integrated messaging
-- 🚀 Clean `main.ts` bootstrapping
+- Microservice/worker mode for consumers only
+- HTTP server with integrated messaging
+- Clean `main.ts` bootstrapping
 
 ---
 
 ## Documentation
 
-📘 https://nestjstools.gitbook.io/nestjstools-messaging-docs
+📘 https://docs.nestjstools.com/messaging
+📘 https://nestjstools.com
 
 ---
 
