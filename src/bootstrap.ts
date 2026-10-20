@@ -7,8 +7,7 @@ import {
   Module, NestApplicationOptions,
   Type,
 } from '@nestjs/common';
-import { MessagingModuleOptions } from '@nestjstools/messaging/lib/config';
-import { MessagingModule } from '@nestjstools/messaging';
+import { MessagingModule, MessagingModuleOptions } from '@nestjstools/messaging';
 import { AbstractHttpAdapter } from '@nestjs/core/adapters/http-adapter';
 import { NestMicroserviceOptions } from '@nestjs/common/interfaces/microservices/nest-microservice-options.interface';
 
